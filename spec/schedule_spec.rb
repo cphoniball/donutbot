@@ -70,4 +70,24 @@ RSpec.describe Schedule do
       end
     end
   end
+
+  describe "#get_formatted_schedule" do
+    context "users and days have been added to the schedule" do
+      it "returns all people and their next donut days in a formatted string" do
+        Timecop.freeze(Date.new(2020, 1, 1)) do
+          subject.add_day_of_week("Friday")
+
+          subject.add_person("Tom")
+          subject.add_person("Bob")
+          subject.add_person("Jerry")
+
+          expect(subject.get_formatted_schedule).to eq([
+            "Friday Jan 3: Tom",
+            "Friday Jan 10: Bob",
+            "Friday Jan 17: Jerry"
+          ].join("\n"))
+        end
+      end
+    end
+  end
 end

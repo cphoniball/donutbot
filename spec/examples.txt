@@ -1,17 +1,18 @@
 example_id                              | status | run_time        |
 --------------------------------------- | ------ | --------------- |
-./spec/day_of_week_spec.rb[1:1:1:1]     | passed | 0.00026 seconds |
-./spec/day_of_week_spec.rb[1:1:2:1]     | passed | 0.00006 seconds |
-./spec/day_of_week_spec.rb[1:2:1]       | passed | 0.00007 seconds |
-./spec/day_of_week_spec.rb[1:3:1]       | passed | 0.0006 seconds  |
-./spec/schedule_spec.rb[1:1:1:1]        | passed | 0.00005 seconds |
+./spec/day_of_week_spec.rb[1:1:1:1]     | passed | 0.00038 seconds |
+./spec/day_of_week_spec.rb[1:1:2:1]     | passed | 0.00008 seconds |
+./spec/day_of_week_spec.rb[1:2:1]       | passed | 0.0013 seconds  |
+./spec/day_of_week_spec.rb[1:3:1]       | passed | 0.00005 seconds |
+./spec/schedule_spec.rb[1:1:1:1]        | passed | 0.00006 seconds |
 ./spec/schedule_spec.rb[1:1:2:1]        | passed | 0.00006 seconds |
-./spec/schedule_spec.rb[1:2:1:1]        | passed | 0.00005 seconds |
+./spec/schedule_spec.rb[1:2:1:1]        | passed | 0.00006 seconds |
 ./spec/schedule_spec.rb[1:2:2:1]        | passed | 0.00005 seconds |
 ./spec/schedule_spec.rb[1:2:3:1]        | passed | 0.00006 seconds |
-./spec/schedule_spec.rb[1:3:1:1]        | passed | 0.00017 seconds |
-./spec/weekly_schedule_spec.rb[1:1:1]   | passed | 0.00006 seconds |
-./spec/weekly_schedule_spec.rb[1:2:1]   | passed | 0.0001 seconds  |
+./spec/schedule_spec.rb[1:3:1:1]        | passed | 0.00015 seconds |
+./spec/schedule_spec.rb[1:4:1:1]        | passed | 0.0006 seconds  |
+./spec/weekly_schedule_spec.rb[1:1:1]   | passed | 0.00352 seconds |
+./spec/weekly_schedule_spec.rb[1:2:1]   | passed | 0.00042 seconds |
 ./spec/weekly_schedule_spec.rb[1:3:1:1] | passed | 0.00006 seconds |
 ./spec/weekly_schedule_spec.rb[1:3:2:1] | passed | 0.00006 seconds |
-./spec/weekly_schedule_spec.rb[1:3:3:1] | passed | 0.00106 seconds |
+./spec/weekly_schedule_spec.rb[1:3:3:1] | passed | 0.00114 seconds |

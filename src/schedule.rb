@@ -26,6 +26,12 @@ class Schedule
     end
   end
 
+  def get_formatted_schedule
+    get_schedule.map do |instance|
+      "#{instance[:day].strftime("%A %b %-d")}: #{instance[:person]}"
+    end.join("\n")
+  end
+
   def add_person(person)
     @people << person
   end
