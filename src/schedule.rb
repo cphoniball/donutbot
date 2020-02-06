@@ -1,15 +1,18 @@
 require 'forwardable'
 require_relative './day_of_week'
+require_relative './weekly_schedule'
 
 class Schedule
   extend Forwardable
 
+  attr_reader :name
   attr_reader :people
   attr_reader :weekly_schedule
 
   def_delegators :@weekly_schedule, :add_day_of_week, :remove_day_of_week
 
-  def initialize
+  def initialize(name)
+    @name = name
     @people = []
     @weekly_schedule = WeeklySchedule.new
   end
