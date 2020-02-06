@@ -85,7 +85,8 @@ RSpec.describe Schedule do
             "Friday Jan 3: Tom",
             "Friday Jan 10: Bob",
             "Friday Jan 17: Jerry"
-          ].join("\n"))
+          ].join("\n")
+        )
         end
       end
     end
