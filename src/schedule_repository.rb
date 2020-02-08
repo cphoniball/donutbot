@@ -1,11 +1,15 @@
+require 'digest'
 require 'yaml/store'
+
 require_relative './schedule'
 require_relative './file_system'
 
 class ScheduleRepository
   def find_by_name(name)
-    # TODO: Check if the schedule doesn't exist
     schedule = Schedule.new(name)
+
+    return nil unless schedule_exist?(schedule)
+
     store = schedule_store(schedule)
 
     store.transaction(true) do
@@ -14,11 +18,6 @@ class ScheduleRepository
     end
 
     schedule
-  end
-
-  def create(name)
-    # TODO: Check if this schedule doesn't already exist
-    save(Schedule.new(name))
   end
 
   def save(schedule)
@@ -34,21 +33,35 @@ class ScheduleRepository
   end
 
   def update(schedule, name: name)
-    # TODO: Delete the old schedule and save to a new locations
+    old_schedule = Schedule.new(schedule.name)
+
+    schedule.name = name
+    save(schedule)
+
+    destroy(old_schedule)
   end
 
   def destroy(schedule)
-    # TODO: Check existence
-    File.delete(schedule_path(schedule))
+    File.delete(schedule_path(schedule)) if schedule_exist?(schedule)
   end
 
   private
+
+  def schedule_exist?(schedule)
+    schedule_path(schedule).exist?
+  end
 
   def schedule_store(schedule)
     YAML::Store.new(schedule_path(schedule), thread_safe: true)
   end
 
   def schedule_path(schedule)
-    FileSystem.storage_path("schedules", "#{schedule.name}.yml")
+    basename = name_hash(schedule.name)
+    FileSystem.storage_path("schedules", "#{basename}.yml")
+  end
+
+  # Hash the name of the schedule so it's safe to use as a file name
+  def name_hash(name)
+    Digest::SHA1.hexdigest(name)
   end
 end

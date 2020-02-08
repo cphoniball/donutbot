@@ -5,7 +5,7 @@ require_relative './weekly_schedule'
 class Schedule
   extend Forwardable
 
-  attr_reader :name
+  attr_accessor :name
   attr_reader :people
   attr_reader :weekly_schedule
 
