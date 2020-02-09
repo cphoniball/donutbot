@@ -2,6 +2,8 @@ require 'timecop'
 require_relative '../src/schedule'
 
 RSpec.describe Schedule do
+  subject { Schedule.new("Test Schedule") }
+
   describe '#add_person' do
     context 'person is not already in the schedule' do
       it 'adds the person into the schedule' do

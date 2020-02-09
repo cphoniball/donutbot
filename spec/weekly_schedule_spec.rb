@@ -57,4 +57,24 @@ RSpec.describe WeeklySchedule do
       end
     end
   end
+
+  describe "remove day of week" do
+    context "day of week is in schedule" do
+      it "removes the day from the schedule" do
+        subject.add_day_of_week(2)
+        subject.remove_day_of_week(2)
+
+        expect(subject.to_integers).to eq([])
+      end
+    end
+
+    context "day of week is not in schedule" do
+      it "does not effect the schedule" do
+        subject.add_day_of_week(4)
+        subject.remove_day_of_week(2)
+
+        expect(subject.to_integers).to eq([4])
+      end
+    end
+  end
 end

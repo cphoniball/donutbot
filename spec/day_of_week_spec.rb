@@ -19,6 +19,18 @@ RSpec.describe DayOfWeek do
         expect(described_class.new(6).day_of_week).to eq(6)
       end
     end
+
+    context "day of week is something else" do
+      it "raises" do
+        expect { described_class.new([]) }.to raise_error(/Day of week is not a recognized type/)
+      end
+    end
+  end
+
+  describe "#to_s" do
+    it "returns the day as a string" do
+      expect(described_class.new(1).to_s).to eq("Monday")
+    end
   end
 
   describe "#next_occurrence_from" do
