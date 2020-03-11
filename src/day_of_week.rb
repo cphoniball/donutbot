@@ -25,6 +25,15 @@ class DayOfWeek
     end
   end
 
+  def self.valid?(day_of_week)
+    begin
+      DayOfWeek.new(day_of_week)
+      true
+    rescue
+      false
+    end
+  end
+
   def to_s
     DAYS_OF_WEEK[day_of_week]
   end

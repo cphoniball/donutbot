@@ -32,7 +32,7 @@ class ScheduleRepository
     schedule
   end
 
-  def update(schedule, name: name)
+  def update(schedule, name:)
     old_schedule = Schedule.new(schedule.name)
 
     schedule.name = name
